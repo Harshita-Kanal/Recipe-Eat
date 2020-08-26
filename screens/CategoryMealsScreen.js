@@ -25,16 +25,7 @@ CategoryMealScreen.navigationOptions = navigationData => {
     const catId = navigationData.navigation.getParam('categoryId');
     const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
     return {
-        headerTitle: selectedCategory.title,
-        headerStyle: {
-            backgroundColor: Colors.primary
-        },
-        headerTintColor: 'white',
-        fontFamily: 'montserrat',
-        headerTitleStyle: {
-            fontFamily: "montserrat",
-            fontWeight: "200"
-        }
+        headerTitle: selectedCategory.title, 
     }
 }
 
