@@ -1,14 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
 import {CATEGORIES, MEALS} from '../data/dummy-data';
-import Colors from '../constants/Colors'
+import Colors from '../constants/Colors';
+import MealItem from '../components/MealItem';
 
 const CategoryMealScreen = props => {   
     const catId = props.navigation.getParam('categoryId')
     const selectedCategory = CATEGORIES.find(cat => cat.id === catId)
     
     const renderMealItem = itemData => {
-        return (<View><Text>{itemData.item.title}</Text></View>)
+        return <MealItem title = {itemData.item.title} 
+        duration = {itemData.item.duration}
+        complexity = {itemData.item.complexity}
+        affordability = {itemData.item.affordability}
+        onSelectMeal = {() => {}}/>
     }
 
     const displayedMeals = MEALS.filter(
