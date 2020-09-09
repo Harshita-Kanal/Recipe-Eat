@@ -9,11 +9,18 @@ const CategoryMealScreen = props => {
     const selectedCategory = CATEGORIES.find(cat => cat.id === catId)
     
     const renderMealItem = itemData => {
-        return <MealItem title = {itemData.item.title} 
+        return <MealItem 
+        title = {itemData.item.title} 
+        image = {itemData.item.imageUrl}
         duration = {itemData.item.duration}
         complexity = {itemData.item.complexity}
         affordability = {itemData.item.affordability}
-        onSelectMeal = {() => {}}/>
+        onSelectMeal = {() => {
+            props.navigation.navigate({routeName: 'MealDetail', params:{
+                mealId: itemData.item.id
+            }
+        })
+        }}/>
     }
 
     const displayedMeals = MEALS.filter(
